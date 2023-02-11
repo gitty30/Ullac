@@ -1,0 +1,55 @@
+.carasoul1{
+   /* position: relative; */
+    width: auto;
+    height: auto; 
+    /* z-index: 1; */
+      /* position: relative; */
+    overflow: hidden;
+    /* top:100px; */
+
+}
+ img{
+    /* position: relative; */
+    background-repeat: no-repeat;
+    /* background-size: cover; */
+     /* top:-130px; */
+     object-fit:fill;
+    max-width: auto;
+    max-height: auto;
+}
+/* .slider {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
+/* .image {
+  width: 1000px;
+  height: 600px;
+  border-radius: 10px;
+} */
+.carousel-item {
+	height: 100vh;
+	/* min-height: 300px; */
+  /* width: 100%; */
+}
+.carousel-item {
+  transition: transform 0.6s ease-in;
+}
+
+.carousel-fade .active.carousel-item-start,
+.carousel-fade .active.carousel-item-end {
+  transition: opacity 0s 2.6s;
+}
+.carousel-indicators [data-bs-target]{
+  height: 1.7px;
+  width: 22px;
+  top: -15px;
+  position: relative;
+background-color: black;
+}
+
+
+
