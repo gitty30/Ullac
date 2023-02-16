@@ -1,5 +1,6 @@
 import React from "react";
 import "./Header.css";
+import { Link } from "react-router-dom";
 import black from'./reso/color.png';
 import SearchIcon from "@mui/icons-material/Search";
 import FaceOutlinedIcon from "@mui/icons-material/FaceOutlined";
@@ -26,29 +27,29 @@ const Header = () => {
             >
               <ul className="navbar-nav me-auto menu">
                 <li className="nav-item item">
-                  <a className="nav-link active" aria-current="page" href="/">
+                  <Link className="nav-link active" aria-current="page" to="/">
                     HOME
-                  </a>
+                  </Link>
                 </li>
                 <li className="nav-item item">
-                  <a className="nav-link" href="/">
+                  <Link className="nav-link" to="/Women">
                     WOMEN
-                  </a>
+                  </Link>
                 </li>
                 <li className="nav-item item">
-                  <a className="nav-link" href="/">
+                  <Link className="nav-link" to="/Men">
                     MEN
-                  </a>
+                  </Link>
                 </li>
                 <li className="nav-item item">
-                  <a className="nav-link " href="/">
+                  <Link className="nav-link " to="/Accessories">
                     ACCESSORIES
-                  </a>
+                  </Link>
                 </li>
                 <li className="nav-item item">
-                  <a className="nav-link " href="/">
+                  <Link className="nav-link " to="/Sale">
                     SALE
-                  </a>
+                  </Link>
                 </li>
               </ul>
 

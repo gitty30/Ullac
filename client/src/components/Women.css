@@ -1,0 +1,20 @@
+.women{
+    /* position: relative; */
+    /* top:12.2vh; */
+    /* border: 2px solid black; */
+}
+.women-header{
+    max-height:90vh;
+    max-width: 200%;
+    overflow: hidden;
+    /* object-fit: contain; */
+}
+.women-header img{
+    /* top:40px; */
+    position: relative;
+    /* top:-130px; */
+    /* left: 50px; */
+    max-width: auto;
+    max-height: auto;
+    object-fit: contain;
+}

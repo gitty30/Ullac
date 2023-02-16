@@ -23,9 +23,9 @@ const NewProducts = () => {
   const getProd = async () => {
     try {
       setLoading(true)
-      const url = `https://api.storerestapi.com/products`;
+      const url = `https://fakestoreapi.com/products`;
       const response = await axios.get(url);
-      const Data = await response.data.data;
+      const Data = await response.data;
       console.log(response.data)
       setProducts(Data);
       setLoading(false);
