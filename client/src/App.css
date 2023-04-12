@@ -11,8 +11,10 @@
     line-height: 2.14286;
     color: black;
     /* border-top: 0!important; */
-    border:10px solid white;
-    /* border-top: 5px!important; */
+    /* border:10px solid white!important; */
+    /* border-top: 8px solid white!important; */
+    /* border-left: 12px solid white!important; */
+        /* border-right: 12px solid white!important; */
     z-index: 0;
     /* margin: 10px; */
 }

@@ -1,47 +1,46 @@
-import React,{useState,useEffect} from 'react'
-import banner from "./reso/women-header.jpg";
+import React, { useState, useEffect } from "react";
+import banner from "./reso/men-header.png";
 import Loader from "./loader";
 import axios from "axios";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import FormatAlignLeftIcon from "@mui/icons-material/FormatAlignLeft";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
-
-import "./Women.css";
-const Women = () => {
-        const [isVisible, setIsVisible] = useState(false);
-        const[value,setValue]=useState("women's clothing");
-        const[products,setProducts]=useState([]);
-          const [loading, setLoading] = useState(false);
-        const getProd=async()=>{
-          try {
-            console.log(value);
-            setLoading(true);
-                 const url = `https://fakestoreapi.com/products`;
-                 const response = await axios.get(url);
-                 const Data = await response.data;
-                 setProducts(Data);
-                  setLoading(false);
-                 console.log(Data)
-          } catch (error) {
-              console.log(error);
-          }  
-        }
-        useEffect(()=>{
-          getProd();
-        },[value])
+import "./Men.css";
+const Men = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const [value, setValue] = useState("men's clothing");
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const getProd = async () => {
+    try {
+      console.log(value);
+      setLoading(true);
+      const url = `https://fakestoreapi.com/products`;
+      const response = await axios.get(url);
+      const Data = await response.data;
+      setProducts(Data);
+      setLoading(false);
+      console.log(Data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  useEffect(() => {
+    getProd();
+  }, [value]);
   return (
     <>
-      <div className="women">
+      <div className="men">
         <div
-          className="women-header"
+          className="men-header"
           style={{
             minWidth: "32rem",
             minHeight: "40rem",
             // backgroundImage: "url(" + S1 + ")",
             backgroundSize: "cover",
             backgroundAttachment: "fixed",
-            backgroundImage: "url(" + banner + ")"
+            backgroundImage: "url(" + banner + ")",
           }}
         >
           {/* <img src={banner} alt="banner" /> */}
@@ -75,14 +74,11 @@ const Women = () => {
                 >
                   BLAZERS
                 </button>
-                <button
-                  value="DRESSES"
-                  onClick={(e) => setValue(e.target.value)}
-                >
-                  DRESSES
+                <button value="BELT" onClick={(e) => setValue(e.target.value)}>
+                  BELT
                 </button>
-                <button value="TOPS" onClick={(e) => setValue(e.target.value)}>
-                  TOPS
+                <button value="PANTS" onClick={(e) => setValue(e.target.value)}>
+                  PANTS
                 </button>
                 <button
                   value="T-SHIRTS"
@@ -96,17 +92,14 @@ const Women = () => {
                 >
                   TROUSER
                 </button>
-                <button
-                  value="SKIRTS"
-                  onClick={(e) => setValue(e.target.value)}
-                >
-                  SKIRTS
+                <button value="CAPS" onClick={(e) => setValue(e.target.value)}>
+                  CAPS
                 </button>
                 <button
-                  value="SWEATSHIRTS"
+                  value="SWEATERS"
                   onClick={(e) => setValue(e.target.value)}
                 >
-                  SWEATSHIRTS
+                  SWEATERS
                 </button>
               </div>
             )}
@@ -140,10 +133,10 @@ const Women = () => {
                 <h5 style={{ fontSize: "2vh", cursor: "pointer" }}>SORT</h5>
               </div>
             </div>
-            <div id="top-prod" >
+            <div id="top-prod">
               <div className="prod_item_top">
-                <img src="https://cdn.shopify.com/s/files/1/0371/0504/1547/products/2mood-25-06-202182693.jpg?v=1675763582" />
-                <div className="prod-detail">
+                <img src="https://static.zara.net/photos///2023/V/0/2/p/6987/430/620/2/w/457/6987430620_2_1_1.jpg?ts=1674219007800" />
+                <div className="prod-detail_men">
                   <p className="title">Milky midi Dress</p>
                   <p className="price">&#8364;41</p>
                 </div>
@@ -156,14 +149,14 @@ const Women = () => {
                 </div>
               </div> */}
               <div className="prod_item_top">
-                <img src="https://cdn.shopify.com/s/files/1/0371/0504/1547/products/jeans_090666.jpg?v=1675763579" />
-                <div className="prod-detail">
+                <img src="https://static.zara.net/photos///2023/V/0/2/p/4143/575/800/2/w/457/4143575800_2_1_1.jpg?ts=1674650290701" />
+                <div className="prod-detail_men">
                   <p className="title">Light blue fit jeans</p>
                   <p className="price">&#8364;23</p>
                 </div>
               </div>
             </div>
-            <div  id="prodi">
+            <div id="prodi">
               {products.map((item, index) => (
                 <div key={item.id} className="prod_item_wom">
                   <img src="https://cdn.shopify.com/s/files/1/0371/0504/1547/products/2mood-13-06-202179460_1.jpg?v=1675763599" />
@@ -186,6 +179,6 @@ const Women = () => {
       </div>
     </>
   );
-}
+};
 
-export default Women;
+export default Men;

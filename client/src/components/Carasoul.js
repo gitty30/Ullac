@@ -1,12 +1,12 @@
-import React,{useState} from 'react'
+import React, { useState } from "react";
 
 import jennie2 from "./reso/jennie2.jpg";
 import img3 from "./reso/imag3.png";
 import rose2 from "./reso/rose2.jpg";
 import S1 from "./reso/S1.jpeg";
-import lisa from './reso/lisa.jpeg';
+import lisa from "./reso/lisa.jpeg";
 import jiso from "./reso/jisoo.jpg";
-import './Carasoul.css';
+import "./Carasoul.css";
 import ArrowLeftIcon from "@mui/icons-material/ArrowLeft";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 const Carasoul = () => {
@@ -20,21 +20,21 @@ const Carasoul = () => {
     { img: jennie2, head: "ULLAC Fashion", link1: "SHOP NOW" },
     { img: rose2, head: "Women's accessories", link1: "SHOP NOW" },
   ];
-// const [current, setCurrent] = useState(0);
-//   const length = SliderData.length;
+  // const [current, setCurrent] = useState(0);
+  //   const length = SliderData.length;
 
-//   const nextSlide = () => {
-//     setCurrent(current === length - 1 ? 0 : current + 1);
-//   };
+  //   const nextSlide = () => {
+  //     setCurrent(current === length - 1 ? 0 : current + 1);
+  //   };
 
-//   const prevSlide = () => {
-//     setCurrent(current === 0 ? length - 1 : current - 1);
-//   };
+  //   const prevSlide = () => {
+  //     setCurrent(current === 0 ? length - 1 : current - 1);
+  //   };
 
-//   if (!Array.isArray(SliderData) || SliderData.length <= 0) {
-//     return null;
-//   }
-// #f0f0f0
+  //   if (!Array.isArray(SliderData) || SliderData.length <= 0) {
+  //     return null;
+  //   }
+  // #f0f0f0
   return (
     // <div className="carasoul">
     <div
@@ -50,7 +50,6 @@ const Carasoul = () => {
           className="active"
           aria-current="true"
           aria-label="Slide 1"
-          
         ></button>
         <button
           type="button"
@@ -67,16 +66,43 @@ const Carasoul = () => {
       </div>
       <div className="carousel-inner">
         <div className="carousel-item active">
-          <img src={S1} className="d-block w-100" alt="..." />
+          {/* <img src={S1} className="d-block w-100" alt="..." /> */}
+          <div
+            style={{
+              minWidth: "100%",
+              minHeight: "100%",
+              backgroundImage: "url(" + S1 + ")",
+              backgroundSize: "cover",
+              backgroundAttachment: "fixed",
+            }}
+          ></div>
         </div>
         <div className="carousel-item">
-          <img src={jennie2} className="d-block w-100" alt="..." />
+          <div
+            style={{
+              minWidth: "100%",
+              minHeight: "100%",
+              backgroundImage: "url(" + jennie2 + ")",
+              backgroundSize: "cover",
+              backgroundAttachment: "fixed",
+            }}
+          ></div>
+          {/* <img src={jennie2} className="d-block w-100" alt="..." /> */}
         </div>
         <div className="carousel-item">
-          <img src={rose2} className="d-block w-100 " alt="..." />
+          <div
+            style={{
+              minWidth: "100%",
+              minHeight: "100%",
+              backgroundImage: "url(" + rose2 + ")",
+              backgroundSize: "cover",
+              backgroundAttachment: "fixed",
+            }}
+          ></div>
+          {/* <img src={rose2} className="d-block w-100 " alt="..." /> */}
         </div>
       </div>
-      {/* <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+      {/*   <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
     <span className="carousel-control-prev-icon" aria-hidden="true"></span>
     <span className="visually-hidden">Previous</span>
   </button>
@@ -87,6 +113,6 @@ const Carasoul = () => {
     </div>
     // </div>
   );
-}
+};
 
-export default Carasoul
+export default Carasoul;

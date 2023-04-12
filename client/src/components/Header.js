@@ -58,7 +58,13 @@ const Header = () => {
               </div>
               <form className="d-flex icons" role="search">
                 <SearchIcon className="icon" />
-                <FaceOutlinedIcon className="icon" />
+                <Link to="/login" className="login">
+                  <FaceOutlinedIcon
+                    className="icon "
+                   
+                  />
+                </Link>
+
                 <ShoppingBagOutlinedIcon className="icon" />
               </form>
             </div>

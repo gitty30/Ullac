@@ -73,4 +73,10 @@
 }
 .icon{
     cursor: pointer;
+    text-decoration: none!important;
+     color: black;
+}
+.login{
+ 
+
 }
