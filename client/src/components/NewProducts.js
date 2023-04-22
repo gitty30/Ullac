@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+
 import Loader from "./loader";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import Salebanner from "./reso/Sale-banner.jpg";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
-
+import data from "../data.js"
 import "./NewProducts.css";
+axios.defaults.withCredentials = true;
 // let firstRender = true;
 const NewProducts = () => {
   const [products, setProducts] = useState([]);
@@ -15,17 +17,25 @@ const NewProducts = () => {
   const [time, setTime] = useState(new Date());
   const[render,setRender]=useState(true);
   const date = new Date();
+  const sendR= async()=>{
+     
+       const res=await axios.get("http://localhost:3001/api/v1/user",{
+        withCredentials:true,
+       });
+       const data=res.data;
+       console.log(data);
+  }
   const showTime =
     date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
 
   const getProd = async () => {
     try {
       setLoading(true);
-      const url = `https://fakestoreapi.com/products`;
-      const response = await axios.get(url);
-      const Data = await response.data;
-       console.log(response.data);
-      setProducts(Data);
+      // const url = `https://fakestoreapi.com/products`;
+      // const response = await axios.get(url);
+      // const Data = await response.data;
+      //  console.log(response.data);
+      setProducts(data);
       setLoading(false);
     } catch (error) {
       console.log(error);
@@ -42,6 +52,7 @@ const NewProducts = () => {
       console.log(render);
       console.log("yoo");
       getProd();
+      sendR();
     }
 
     const intervalId = setInterval(() => {
@@ -57,6 +68,7 @@ const NewProducts = () => {
           <Loader />
         ) : (
           <div className="wrapper">
+            {/* <button type="submit" onClick={sendR}></button> */}
             {/* {console.log(products)} */}
             {products.map(
               (item, index) =>

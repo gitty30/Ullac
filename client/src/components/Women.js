@@ -6,7 +6,7 @@ import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import FormatAlignLeftIcon from "@mui/icons-material/FormatAlignLeft";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
-
+import data from "../data.js";
 import "./Women.css";
 const Women = () => {
         const [isVisible, setIsVisible] = useState(false);
@@ -15,14 +15,14 @@ const Women = () => {
           const [loading, setLoading] = useState(false);
         const getProd=async()=>{
           try {
-            console.log(value);
-            setLoading(true);
-                 const url = `https://fakestoreapi.com/products`;
-                 const response = await axios.get(url);
-                 const Data = await response.data;
-                 setProducts(Data);
+            // console.log(value);
+            // setLoading(true);
+            //      const url = `https://fakestoreapi.com/products`;
+            //      const response = await axios.get(url);
+            //      const Data = await response.data;
+                 setProducts(data);
                   setLoading(false);
-                 console.log(Data)
+                 console.log(data)
           } catch (error) {
               console.log(error);
           }  

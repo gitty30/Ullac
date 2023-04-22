@@ -61,7 +61,7 @@
     height: 110%;
     /* width: 50%; */
     flex: 1;
-    display: flex;
+    display: flex!important;
     align-items: center;
     justify-content: center;
     /* background-color: aqua; */
@@ -76,7 +76,7 @@
 }
 
 .page-info{
-  display: flex;
+  display: flex!important;
     flex-direction: column;
     align-items: baseline;
     justify-content: end;

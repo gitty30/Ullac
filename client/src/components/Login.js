@@ -1,8 +1,32 @@
-import React from "react";
+import React,{useState} from "react";
 import Archie from "./reso/Archie.jpg";
+import axios from "axios";
+import {Link,useNavigate} from "react-router-dom";
 import "./Login.css";
 
 const Login = () => {
+  const history=useNavigate();
+  const[input,setInput]=useState({
+    email:"",
+    password:""
+  });
+  const handleChange=(e)=>{
+   setInput({...input,[e.target.name]:e.target.value});
+  }
+  const getReq=async()=>{
+    const res= await axios.post('http://localhost:3001/api/v1/login',{
+      email:input.email,
+      password:input.password
+    })
+    const data=await res.data;
+
+    console.log(data);
+    return data;
+  }
+  const sendR=(e)=>{
+    e.preventDefault();
+      getReq().then(()=>history('/'));
+  }
   return (
     <div className="login-outline">
       <div className="login-box">
@@ -14,8 +38,8 @@ const Login = () => {
             <p>Please login to Ullac with your email address</p>
           </div>
           <div className="name-pass">
-            <input placeholder="Email"></input>
-            <input placeholder="Password"></input>
+            <input placeholder="Email" value={input.email} name="email" onChange={handleChange}></input>
+            <input placeholder="Password" value={input.password} name="password" onChange={handleChange}></input>
             <a
               href="#"
               style={{ textAlign: "right", textDecoration: "underline" }}
@@ -23,12 +47,12 @@ const Login = () => {
               {" "}
               Forgot Password?
             </a>
-          </div>
-          <div className="redirect">
-            <button>Log in</button>
-            <p>
-              Don't have an account?<a href="#"> Signup for free</a>
-            </p>
+            <div className="redirect">
+              <button onClick={sendR}>Log in</button>
+              <p>
+                Don't have an account?<Link to="/signup"> Signup for free</Link>
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -42,7 +66,7 @@ const Login = () => {
         }}
       >
         <div className="page-info">
-          <h2 >
+          <h2>
             Lorem ipsum dolor sit amet conse ctetur adipiscing elit, sed do
             eiusmod tempor incididunt
           </h2>
