@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Archie from "./reso/Archie.jpg";
+import Archie from "./reso/lisa_login.jpeg";
 import axios from "axios";
 import "./Signup.css";
 import { useNavigate } from "react-router";
@@ -17,7 +17,7 @@ const Singup = () => {
   };
   const sendData = async () => {
     const res = await axios
-      .post("http://localhost:3001/api/v1/signup", {
+      .post(`${process.env.REACT_APP_BACKEND_API}/api/v1/signup`, {
         firstname: input.firstname,
         lastname: input.lastname,
         email: input.email,
@@ -114,14 +114,7 @@ const Singup = () => {
           backgroundSize: "cover",
         }}
       >
-        <div className="page-info">
-          <h2>
-            Lorem ipsum dolor sit amet conse ctetur adipiscing elit, sed do
-            eiusmod tempor incididunt
-          </h2>
-          <h3>Archie Chandel</h3>
-          <h5>Founder</h5>
-        </div>
+       
       </div>
     </div>
   );

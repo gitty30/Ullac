@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-
+import { add } from "../store/cartSlice";
+import { useDispatch } from "react-redux";
 import Loader from "./loader";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import FavoriteIcon from "@mui/icons-material/Favorite";
@@ -9,6 +10,7 @@ import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import data from "../data.js"
 import "./NewProducts.css";
+
 axios.defaults.withCredentials = true;
 // let firstRender = true;
 const NewProducts = () => {
@@ -16,12 +18,19 @@ const NewProducts = () => {
   const [loading, setLoading] = useState(false);
   const [time, setTime] = useState(new Date());
   const[render,setRender]=useState(true);
+  const dispatch=useDispatch();
   const date = new Date();
+  const handle = (prod) => {
+    dispatch(add(prod));
+  };
   const sendR= async()=>{
      
-       const res=await axios.get("http://localhost:3001/api/v1/user",{
-        withCredentials:true,
-       });
+       const res = await axios.get(
+         `${process.env.REACT_APP_BACKEND_API}/api/v1/user`,
+         {
+           withCredentials: true,
+         }
+       );
        const data=res.data;
        console.log(data);
   }
@@ -54,6 +63,7 @@ const NewProducts = () => {
       getProd();
       sendR();
     }
+    
 
     const intervalId = setInterval(() => {
       setTime(new Date());
@@ -76,7 +86,10 @@ const NewProducts = () => {
                   <div key={item.id} className="prod_item">
                     <img src="https://cdn.shopify.com/s/files/1/0371/0504/1547/products/2mood-13-06-202179460_1.jpg?v=1675763599" />
                     <div className="cart-icon">
-                      <ShoppingCartOutlinedIcon className="cart" />
+                      <ShoppingCartOutlinedIcon
+                        className="cart"
+                        onClick={() => handle(item)}
+                      />
                       <FavoriteBorderOutlinedIcon className="fav" />
                     </div>
                     <div className="item-data">
@@ -122,7 +135,9 @@ const NewProducts = () => {
                   <div key={item.id} className="prod_item">
                     <img src="https://images.asos-media.com/products/lola-may-tie-back-waist-crop-top-in-brown/201447754-1-brown?$n_480w$&wid=476&fit=constrain" />
                     <div className="cart-icon">
-                      <ShoppingCartOutlinedIcon className="cart" />
+                
+                        <ShoppingCartOutlinedIcon className="cart" onClick={()=>handle(item)} />
+                   
                       <FavoriteBorderOutlinedIcon className="fav" />
                     </div>
                     <div className="item-data">

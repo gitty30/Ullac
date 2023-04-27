@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import banner from "./reso/men-header.png";
 import Loader from "./loader";
 import axios from "axios";
+import { add } from "../store/cartSlice";
+import { useDispatch } from "react-redux";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import FormatAlignLeftIcon from "@mui/icons-material/FormatAlignLeft";
@@ -30,6 +32,10 @@ const Men = () => {
   useEffect(() => {
     getProd();
   }, [value]);
+  const dispatch=useDispatch();
+  const handle=(item)=>{
+    dispatch(add(item))
+  }
   return (
     <>
       <div className="men">
@@ -162,7 +168,7 @@ const Men = () => {
                 <div key={item.id} className="prod_item_wom">
                   <img src="https://cdn.shopify.com/s/files/1/0371/0504/1547/products/2mood-13-06-202179460_1.jpg?v=1675763599" />
                   <div className="cart-icon">
-                    <ShoppingCartOutlinedIcon className="cart" />
+                    <ShoppingCartOutlinedIcon className="cart" onClick={()=>handle(item)} />
                     <FavoriteBorderOutlinedIcon className="fav" />
                   </div>
                   <div className="item-data-women">

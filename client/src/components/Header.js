@@ -5,7 +5,11 @@ import black from'./reso/color.png';
 import SearchIcon from "@mui/icons-material/Search";
 import FaceOutlinedIcon from "@mui/icons-material/FaceOutlined";
 import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
+import { Badge } from "@mui/material";
+import {useSelector } from "react-redux"
 const Header = () => {
+  const cart=useSelector((state)=>state.cart)
+  
     return (
       <>
         <nav className="navbar navbar-expand-lg navbar-light bg-transparent">
@@ -59,13 +63,13 @@ const Header = () => {
               <form className="d-flex icons" role="search">
                 <SearchIcon className="icon" />
                 <Link to="/login" className="login">
-                  <FaceOutlinedIcon
-                    className="icon "
-                   
-                  />
+                  <FaceOutlinedIcon className="icon " />
                 </Link>
-
-                <ShoppingBagOutlinedIcon className="icon" />
+                <Link to="/cart">
+                  <Badge badgeContent={cart.length} color="primary" >
+                    <ShoppingBagOutlinedIcon className="icon" />
+                  </Badge>
+                </Link>
               </form>
             </div>
           </div>

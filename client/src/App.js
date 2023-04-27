@@ -11,7 +11,10 @@ import Sale from './components/Sale';
 import Login from './components/Login';
 import Singup from './components/Singup';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Provider } from 'react-redux';
 import cars from "./components/reso/cars1.jpg";
+import Cart from './components/Cart';
+import store from './store/store';
 function App() {
   const [isSolid, setIsSolid] = useState(false);
 
@@ -26,27 +29,30 @@ function App() {
     
   return (
     <div className="page">
-      <BrowserRouter>
-        <header
-          style={{
-            backgroundColor: isSolid ? "white" : "transparent",
-            transition: "background-color 0.5s ease",
-            top: "0px",
-          }}
-        >
-          <Header />
-        </header>
-        <Routes>
-          <Route path="/" element={[<Carasoul />, <NewProducts />]} />
-          <Route path="/Women" element={<Women />} />
-          <Route path="/Men" element={<Men />} />
-          <Route path="/Accessories" element={<Accessories />} />
-          <Route path="/Sale" element={<Sale />} />
-          <Route path="/login" element={<Login/>} />
-          <Route path="/signup" element={<Singup/>} />
-        </Routes>
-        <Footer />
-      </BrowserRouter>
+      <Provider store={store}>
+        <BrowserRouter>
+          <header
+            style={{
+              backgroundColor: isSolid ? "white" : "transparent",
+              transition: "background-color 0.5s ease",
+              top: "0px",
+            }}
+          >
+            <Header />
+          </header>
+          <Routes>
+            <Route path="/" element={[<Carasoul />, <NewProducts />]} />
+            <Route path="/Women" element={<Women />} />
+            <Route path="/Men" element={<Men />} />
+            <Route path="/Accessories" element={<Accessories />} />
+            <Route path="/Sale" element={<Sale />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Singup />} />
+            <Route path="/cart" element={<Cart />} />
+          </Routes>
+          <Footer />
+        </BrowserRouter>
+      </Provider>
     </div>
   );
 }

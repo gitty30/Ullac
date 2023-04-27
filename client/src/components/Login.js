@@ -1,5 +1,5 @@
 import React,{useState} from "react";
-import Archie from "./reso/Archie.jpg";
+import Archie from "./reso/lisa_login.jpeg";
 import axios from "axios";
 import {Link,useNavigate} from "react-router-dom";
 import "./Login.css";
@@ -14,10 +14,14 @@ const Login = () => {
    setInput({...input,[e.target.name]:e.target.value});
   }
   const getReq=async()=>{
-    const res= await axios.post('http://localhost:3001/api/v1/login',{
-      email:input.email,
-      password:input.password
-    })
+    console.log(process.env.REACT_APP_BACKEND_API);
+    const res = await axios.post(
+      `${process.env.REACT_APP_BACKEND_API}/api/v1/login`,
+      {
+        email: input.email,
+        password: input.password,
+      }
+    );
     const data=await res.data;
 
     console.log(data);
@@ -65,14 +69,7 @@ const Login = () => {
           backgroundSize: "cover",
         }}
       >
-        <div className="page-info">
-          <h2>
-            Lorem ipsum dolor sit amet conse ctetur adipiscing elit, sed do
-            eiusmod tempor incididunt
-          </h2>
-          <h3>Archie Chandel</h3>
-          <h5>Founder</h5>
-        </div>
+        
       </div>
     </div>
   );
