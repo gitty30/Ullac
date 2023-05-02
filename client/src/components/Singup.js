@@ -107,6 +107,7 @@ const Singup = () => {
       </div>
       <div
         className="login-image"
+        id="signup-img"
         style={{
           backgroundImage: "url(" + Archie + ")",
           minWidth: "30%",

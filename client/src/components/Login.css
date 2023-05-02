@@ -8,12 +8,16 @@
     
 
 }
-@media screen  and (max-width:900px){
+@media screen  and (max-width:1000px){
   #top-prod{
     flex-wrap: wrap;
   }
+  #login-img{
+    display: none;
+  }
 }
 @media screen and (min-width: 1000px) {
+
   #prodi {
     display: grid;
     grid-template-columns: repeat(1, 1fr);

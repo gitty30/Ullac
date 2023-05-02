@@ -62,6 +62,7 @@ const Login = () => {
       </div>
       <div
         className="login-image"
+        id="login-img"
         style={{
           backgroundImage: "url(" + Archie + ")",
           minWidth: "30%",
